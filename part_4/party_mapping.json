@@ -1,0 +1,72 @@
+{
+  "mappings": {
+    "party": {
+      "properties": {
+        "birthDate": {
+          "type": "date",
+          "format": "strict_date_optional_time||epoch_millis"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "analyzer": "standard_analyzer",
+          "fields": {
+            "autocomplete": {
+              "type": "string",
+              "analyzer": "autocomplete_analyzer",
+              "search_analyzer": "standard_analyzer"
+            }
+          }
+        },
+        "nip": {
+          "type": "string"
+        },
+        "partyId": {
+          "type": "long"
+        },
+        "pesel": {
+          "type": "string"
+        },
+        "regon": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "settings": {
+    "index": {
+      "analysis": {
+        "filter": {
+          "nGramFilter": {
+            "type": "nGram",
+            "min_gram": 3,
+            "max_gram": 40,
+            "token_chars": [
+              "letter",
+              "digit"
+            ]
+          }
+        },
+        "analyzer": {
+          "standard_analyzer": {
+            "type": "standard",
+            "stopwords": []
+          },
+          "autocomplete_analyzer": {
+            "type": "custom",
+            "tokenizer": "standard",
+            "filter": [
+              "lowercase",
+              "nGramFilter"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
