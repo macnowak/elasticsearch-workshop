@@ -1,0 +1,64 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.2.RELEASE'
+	}
+
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+group 'pl.decerto.workshop.elastic'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'org.springframework.boot'
+
+
+jar {
+	baseName = 'app'
+}
+
+repositories {
+	mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+	compile("org.springframework.boot:spring-boot-starter-web") {
+		exclude module: "spring-boot-starter-tomcat"
+	}
+	compile("org.springframework.boot:spring-boot-starter-jetty")
+	compile("org.springframework.boot:spring-boot-starter-actuator")
+	compile 'org.elasticsearch:elasticsearch:2.4.4'
+	compile 'org.projectlombok:lombok:1.16.16'
+
+	//test
+	testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
+	testCompile group: 'org.spockframework', name: 'spock-spring'
+	testCompile group: 'cglib', name: 'cglib-nodep', version: '3.2.4'
+	testCompile group: 'pl.allegro.tech', name: 'embedded-elasticsearch', version: '2.1.0'
+
+}
+
+test {
+	testLogging {
+		events "passed", "skipped", "failed"
+	}
+}
+
+test {
+	def fileSeparator = File.separator
+	def defaultPath = project.buildDir.getAbsolutePath() + fileSeparator + "elastic-" + System.currentTimeMillis() + fileSeparator
+	systemProperty "java.io.tmpdir", System.getProperty("embeddedElasticDir", defaultPath)
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '3.5'
+}

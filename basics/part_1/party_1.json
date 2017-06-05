@@ -1,0 +1,10 @@
+{
+  "partyId": 1,
+  "firstName": "Jan",
+  "name": "Kowalski",
+  "label": "Jan Kowalski",
+  "nip": "123-123",
+  "pesel": "123",
+  "regon": null,
+  "birthDate": "2015-01-04"
+}

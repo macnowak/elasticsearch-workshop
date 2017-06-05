@@ -1,0 +1,39 @@
+{
+  "changelog": {
+    "aliases": {},
+    "mappings": {
+      "changelog": {
+        "properties": {
+          "checksum": {
+            "type": "string"
+          },
+          "dateTime": {
+            "type": "date",
+            "format": "strict_date_optional_time||epoch_millis"
+          },
+          "id": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "operation": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "settings": {
+      "index": {
+        "creation_date": "1481633293935",
+        "uuid": "C-oINb1EQ6G7jo3LuMpI4g",
+        "number_of_replicas": "1",
+        "number_of_shards": "5",
+        "version": {
+          "created": "2030399"
+        }
+      }
+    },
+    "warmers": {}
+  }
+}
