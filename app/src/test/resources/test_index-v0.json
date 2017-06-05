@@ -1,6 +1,8 @@
 {
   "changelog": {
-    "aliases": {},
+    "aliases": {
+      "test_index": {}
+    },
     "mappings": {
       "changelog": {
         "properties": {
