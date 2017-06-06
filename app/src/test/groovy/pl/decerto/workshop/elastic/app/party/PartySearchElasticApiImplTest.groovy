@@ -1,5 +1,6 @@
 package pl.decerto.workshop.elastic.app.party
 
+import pl.decerto.workshop.elastic.app.EmbeddedElasticTest
 import pl.decerto.workshop.elastic.app.ExternalElasticTest
 import spock.lang.Unroll
 
@@ -13,7 +14,7 @@ import static pl.decerto.workshop.elastic.app.party.SearchCriteria.Sorter.asc
 import static pl.decerto.workshop.elastic.app.party.SearchCriteria.Sorter.desc
 import static pl.decerto.workshop.elastic.app.party.SearchCriteria.builder
 
-class PartySearchElasticApiImplTest extends ExternalElasticTest {
+class PartySearchElasticApiImplTest extends EmbeddedElasticTest {
 
 	private PartySearchElasticApi api
 
@@ -21,7 +22,7 @@ class PartySearchElasticApiImplTest extends ExternalElasticTest {
 		new PartyIndexConfig(adminApi: adminApi).initPartyIndex()
 		new PartyElasticApiImpl(client, mapper).index(getParties("/party_test_data.json"))
 		client.admin().indices().prepareRefresh(Party.PARTY).get()
-		api = new PartySearchElasticApiImpl()
+		api = new PartySearchElasticApiImpl(client, mapper)
 
 	}
 
