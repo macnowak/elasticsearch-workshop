@@ -55,23 +55,11 @@ public class Party implements ElasticSearchDocument {
 
 	public static final class Fields {
 
-		public static final String PARTY_ID = "partyId";
-
 		public static final String FIRST_NAME = "firstName";
 
 		public static final String NAME = "name";
 
-		public static final String LABEL = "label";
-
-		public static final String LABEL_AUTOCOMPLETE = "label.autocomplete";
-
-		public static final String NIP = "nip";
-
-		public static final String PESEL = "pesel";
-
-		public static final String REGON = "regon";
-
-		public static final String BIRTH_DATE = "birthDate";
+		public static final String NAME_AUTOCOMPLETE = "name.autocomplete";
 
 		public static final String ADDRESSES = "addresses";
 

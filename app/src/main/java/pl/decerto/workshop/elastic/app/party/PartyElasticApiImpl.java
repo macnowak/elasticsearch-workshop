@@ -20,6 +20,7 @@ class PartyElasticApiImpl implements PartyElasticApi {
 		this.mapper = mapper;
 	}
 
+	@Override
 	public Iterable<Party> index(Collection<Party> documents) {
 		BulkRequestBuilder builder = client.prepareBulk();
 

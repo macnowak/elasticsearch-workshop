@@ -31,13 +31,11 @@ public class Address {
 
 		public static final String CITY = "city";
 
+		public static final String CITY_AUTOCOMPLETE = "city.autocomplete";
+
 		public static final String STREET = "street";
 
-		public static final String HOUSE_NUMBER = "houseNumber";
-
-		public static final String DOOR_NUMBER = "doorNumber";
-
-		public static final String POSTAL_CODE = "postalCode";
+		public static final String STREET_AUTOCOMPLETE = "street.autocomplete";
 
 		private Fields() {
 		}
