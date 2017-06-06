@@ -28,4 +28,9 @@ class ElasticConfig {
 		return transportClient;
 	}
 
+	@Bean
+	public ElasticSearchAdminApi elasticSearchAdminApi(Client client) {
+		return new ElasticSearchAdminApiImpl(client);
+	}
+
 }

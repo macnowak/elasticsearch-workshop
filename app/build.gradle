@@ -38,6 +38,10 @@ dependencies {
 	compile("org.springframework.boot:spring-boot-starter-actuator")
 	compile 'org.elasticsearch:elasticsearch:2.4.4'
 	compile 'org.projectlombok:lombok:1.16.16'
+	compile 'commons-io:commons-io:2.5'
+	compile 'org.apache.commons:commons-lang3:3.5'
+	compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.8.8'
+
 
 	//test
 	testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
