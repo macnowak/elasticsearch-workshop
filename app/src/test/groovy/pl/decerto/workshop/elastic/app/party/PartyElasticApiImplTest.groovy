@@ -24,6 +24,7 @@ class PartyElasticApiImplTest extends EmbeddedElasticTest {
 		new PartyElasticApiImpl(client, mapper).index(parties)
 
 		then:
+		client.admin().indices().prepareRefresh(Party.PARTY).get()
 		client.prepareSearch(Party.PARTY).setSize(0).get().hits.totalHits == parties.size()
 
 	}
