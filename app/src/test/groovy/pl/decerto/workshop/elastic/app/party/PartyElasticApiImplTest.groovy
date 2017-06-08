@@ -21,6 +21,11 @@ class PartyElasticApiImplTest extends EmbeddedElasticTest {
 
 	}
 
+	def cleanupSpec() {
+		client.admin().indices().prepareDelete(Party.PARTY).get()
+	}
+
+
 	List<Party> getParties(String fileName) {
 		return Files.readAllLines(Paths.get(PartyElasticApiImplTest.class.getResource(fileName).toURI()))
 				.stream()
